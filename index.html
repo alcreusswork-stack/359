@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ネイス体操教室 ららぽーと安城校</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange: #FF6B1A;
+      --orange-light: #FF8C42;
+      --yellow: #FFD23F;
+      --sky: #3BB9E8;
+      --sky-light: #E8F7FD;
+      --navy: #1A2E5A;
+      --navy-mid: #2A4480;
+      --white: #FFFFFF;
+      --gray-light: #F7F9FC;
+      --gray-mid: #E8EDF4;
+      --text: #1A2E5A;
+      --text-mid: #4A5A7A;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      background: var(--white);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 12px rgba(26,46,90,.10);
+    }
+    .header-logo a {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .header-logo-badge {
+      width: 44px;
+      height: 44px;
+      background: var(--orange);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .header-logo-badge svg { width: 26px; height: 26px; }
+    .header-logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+    .header-logo-main {
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: var(--navy);
+      letter-spacing: .02em;
+    }
+    .header-logo-sub {
+      font-size: .7rem;
+      font-weight: 500;
+      color: var(--orange);
+      letter-spacing: .04em;
+    }
+    .header-cta a {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      text-decoration: none;
+      font-size: .78rem;
+      font-weight: 700;
+      padding: 10px 16px;
+      border-radius: 50px;
+      white-space: nowrap;
+      transition: background .2s;
+    }
+    .header-cta a:hover { background: var(--orange-light); }
+
+    /* ===== HERO IMAGE ===== */
+    .hero-image {
+      width: 100%;
+      display: block;
+    }
+    .hero-image img {
+      width: 100%;
+      display: block;
+      max-height: 560px;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    /* ===== HERO TEXT ===== */
+    .hero-text {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      padding: 48px 20px 56px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-text::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 220px; height: 220px;
+      background: rgba(255,210,63,.12);
+      border-radius: 50%;
+    }
+    .hero-text::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: -40px;
+      width: 160px; height: 160px;
+      background: rgba(59,185,232,.12);
+      border-radius: 50%;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--navy);
+      font-size: .72rem;
+      font-weight: 700;
+      padding: 5px 16px;
+      border-radius: 50px;
+      margin-bottom: 18px;
+      letter-spacing: .06em;
+    }
+    .hero-text h1 {
+      font-size: clamp(1.55rem, 5vw, 2.5rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.4;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-text h1 em {
+      font-style: normal;
+      color: var(--yellow);
+    }
+    .hero-sub {
+      font-size: .95rem;
+      color: rgba(255,255,255,.82);
+      margin-bottom: 28px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 15px 32px;
+      border-radius: 50px;
+      box-shadow: 0 4px 18px rgba(255,107,26,.45);
+      transition: transform .2s, box-shadow .2s;
+      width: 100%;
+      max-width: 320px;
+      text-align: center;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 7px 24px rgba(255,107,26,.5); }
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: var(--white);
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 700;
+      padding: 13px 28px;
+      border-radius: 50px;
+      border: 2px solid rgba(255,255,255,.5);
+      transition: border-color .2s, background .2s;
+      width: 100%;
+      max-width: 320px;
+      text-align: center;
+    }
+    .btn-secondary:hover { border-color: var(--white); background: rgba(255,255,255,.08); }
+
+    /* ===== WAVE ===== */
+    .wave-down {
+      display: block;
+      background: var(--navy-mid);
+      line-height: 0;
+    }
+    .wave-down svg { display: block; }
+
+    /* ===== SECTION SHARED ===== */
+    section { padding: 60px 20px; }
+    .section-inner { max-width: 760px; margin: 0 auto; }
+    .section-tag {
+      display: inline-block;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      color: var(--orange);
+      background: rgba(255,107,26,.1);
+      padding: 4px 14px;
+      border-radius: 50px;
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-size: clamp(1.3rem, 4vw, 1.9rem);
+      font-weight: 900;
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+    .section-lead {
+      font-size: .93rem;
+      color: var(--text-mid);
+      margin-bottom: 36px;
+    }
+
+    /* ===== FEATURE (イチオシ) ===== */
+    .feature { background: var(--gray-light); }
+    .feature-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+    .feature-card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 26px 22px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      box-shadow: 0 2px 14px rgba(26,46,90,.07);
+    }
+    .feature-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.6rem;
+    }
+    .feat-1 { background: rgba(255,107,26,.12); }
+    .feat-2 { background: rgba(59,185,232,.12); }
+    .feat-3 { background: rgba(255,210,63,.18); }
+    .feat-4 { background: rgba(26,46,90,.09); }
+    .feature-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; color: var(--navy); }
+    .feature-card p { font-size: .86rem; color: var(--text-mid); line-height: 1.65; }
+
+    .feature-coming {
+      background: linear-gradient(135deg, rgba(59,185,232,.1), rgba(26,46,90,.07));
+      border: 2px dashed rgba(59,185,232,.4);
+      border-radius: 14px;
+      padding: 18px 20px;
+      text-align: center;
+    }
+    .feature-coming p { font-size: .85rem; color: var(--text-mid); }
+    .feature-coming strong { color: var(--sky); font-weight: 700; }
+
+    /* ===== STRENGTH ===== */
+    .strength { background: var(--white); }
+    .strength-list {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+    .strength-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 22px 18px;
+      border-radius: 16px;
+      border-left: 5px solid var(--orange);
+      background: var(--gray-light);
+    }
+    .strength-num {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--orange);
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 40px;
+    }
+    .strength-item h3 { font-size: .98rem; font-weight: 700; margin-bottom: 5px; color: var(--navy); }
+    .strength-item p { font-size: .85rem; color: var(--text-mid); line-height: 1.65; }
+
+    /* ===== STORY ===== */
+    .story {
+      background: var(--navy);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .story::before {
+      content: '体操';
+      position: absolute;
+      font-size: 8rem;
+      font-weight: 900;
+      color: rgba(255,255,255,.04);
+      right: -10px;
+      top: 50%;
+      transform: translateY(-50%);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .story .section-title { color: var(--white); }
+    .story .section-lead { color: rgba(255,255,255,.7); }
+    .story-card {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 18px;
+      padding: 26px 22px;
+      position: relative;
+      z-index: 1;
+    }
+    .story-card .quote-mark {
+      font-size: 3rem;
+      color: var(--yellow);
+      line-height: .8;
+      font-weight: 900;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .story-card p { font-size: .9rem; line-height: 1.8; color: rgba(255,255,255,.88); }
+    .story-author {
+      margin-top: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .story-author-badge {
+      background: var(--yellow);
+      color: var(--navy);
+      font-size: .72rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 50px;
+    }
+    .story-author-name {
+      font-size: .88rem;
+      color: rgba(255,255,255,.7);
+    }
+
+    /* ===== REVIEWS ===== */
+    .reviews { background: var(--sky-light); }
+    .review-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .review-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 22px 20px;
+      box-shadow: 0 2px 14px rgba(26,46,90,.07);
+      position: relative;
+    }
+    .review-stars {
+      color: #FFB800;
+      font-size: 1rem;
+      letter-spacing: .1em;
+      margin-bottom: 10px;
+    }
+    .review-card p {
+      font-size: .86rem;
+      color: var(--text-mid);
+      line-height: 1.75;
+    }
+    .review-card::before {
+      content: '"';
+      position: absolute;
+      top: 12px; right: 18px;
+      font-size: 3.5rem;
+      color: rgba(59,185,232,.15);
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    /* ===== INFO ===== */
+    .info { background: var(--white); }
+    .info-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(26,46,90,.08);
+    }
+    .info-table tr:nth-child(odd) td:first-child,
+    .info-table tr:nth-child(odd) th { background: rgba(255,107,26,.06); }
+    .info-table tr:nth-child(even) td:first-child,
+    .info-table tr:nth-child(even) th { background: rgba(59,185,232,.06); }
+    .info-table th {
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--navy);
+      padding: 14px 16px;
+      text-align: left;
+      white-space: nowrap;
+      width: 34%;
+      border-bottom: 1px solid var(--gray-mid);
+    }
+    .info-table td {
+      font-size: .86rem;
+      color: var(--text-mid);
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--gray-mid);
+    }
+    .info-table tr:last-child th,
+    .info-table tr:last-child td { border-bottom: none; }
+
+    /* ===== MAP ===== */
+    .map { background: var(--gray-light); }
+    .map-wrap {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(26,46,90,.10);
+      margin-bottom: 20px;
+    }
+    .map-wrap iframe {
+      width: 100%;
+      height: 280px;
+      border: 0;
+      display: block;
+    }
+    .map-btn-wrap { text-align: center; }
+    .btn-map {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--sky);
+      color: var(--white);
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 700;
+      padding: 13px 28px;
+      border-radius: 50px;
+      box-shadow: 0 3px 14px rgba(59,185,232,.4);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn-map:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(59,185,232,.45); }
+    .btn-map svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    /* ===== CTA ===== */
+    .cta-section {
+      background: linear-gradient(135deg, var(--orange) 0%, #FF9040 100%);
+      padding: 60px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 260px; height: 260px;
+      background: rgba(255,255,255,.1);
+      border-radius: 50%;
+    }
+    .cta-section::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 200px; height: 200px;
+      background: rgba(255,255,255,.08);
+      border-radius: 50%;
+    }
+    .cta-section h2 {
+      font-size: clamp(1.3rem, 4.5vw, 2rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.4;
+      margin-bottom: 10px;
+      position: relative; z-index: 1;
+    }
+    .cta-section p {
+      font-size: .9rem;
+      color: rgba(255,255,255,.88);
+      margin-bottom: 28px;
+      position: relative; z-index: 1;
+    }
+    .cta-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+      position: relative; z-index: 1;
+    }
+    .btn-white {
+      display: inline-block;
+      background: var(--white);
+      color: var(--orange);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 15px 32px;
+      border-radius: 50px;
+      box-shadow: 0 4px 18px rgba(0,0,0,.18);
+      transition: transform .2s, box-shadow .2s;
+      width: 100%;
+      max-width: 320px;
+      text-align: center;
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 7px 24px rgba(0,0,0,.22); }
+    .btn-white-outline {
+      display: inline-block;
+      background: transparent;
+      color: var(--white);
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 700;
+      padding: 13px 28px;
+      border-radius: 50px;
+      border: 2px solid rgba(255,255,255,.7);
+      transition: border-color .2s, background .2s;
+      width: 100%;
+      max-width: 320px;
+      text-align: center;
+    }
+    .btn-white-outline:hover { border-color: var(--white); background: rgba(255,255,255,.1); }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--navy);
+      color: rgba(255,255,255,.7);
+      padding: 48px 20px 28px;
+      text-align: center;
+    }
+    .footer-logo {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .footer-sub {
+      font-size: .75rem;
+      color: rgba(255,255,255,.5);
+      margin-bottom: 22px;
+    }
+    .footer-official {
+      margin-bottom: 24px;
+    }
+    .footer-official a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--sky);
+      text-decoration: none;
+      font-size: .85rem;
+      font-weight: 700;
+      border: 1.5px solid rgba(59,185,232,.4);
+      padding: 8px 20px;
+      border-radius: 50px;
+      transition: background .2s, border-color .2s;
+    }
+    .footer-official a:hover { background: rgba(59,185,232,.1); border-color: var(--sky); }
+    .footer-sns {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .footer-sns a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px; height: 42px;
+      border-radius: 12px;
+      transition: opacity .2s, transform .2s;
+      text-decoration: none;
+    }
+    .footer-sns a:hover { opacity: .82; transform: translateY(-2px); }
+    .footer-info {
+      font-size: .78rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,.5);
+      margin-bottom: 20px;
+    }
+    .footer-copy {
+      font-size: .72rem;
+      color: rgba(255,255,255,.3);
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-top: 20px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (min-width: 600px) {
+      .hero-btns, .cta-btns { flex-direction: row; justify-content: center; }
+      .btn-primary, .btn-secondary, .btn-white, .btn-white-outline { width: auto; }
+      .strength-item { padding: 24px 22px; }
+    }
+    @media (min-width: 760px) {
+      section { padding: 72px 32px; }
+      .feature-cards { display: grid; grid-template-columns: 1fr 1fr; }
+      .review-cards { display: grid; grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+  <div class="header-logo">
+    <a href="https://neis-gym.com/class/aichi/neis_1140/" target="_blank" rel="noopener">
+      <div class="header-logo-badge">
+        <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="13" cy="10" r="5" fill="white"/>
+          <path d="M5 22c0-4.418 3.582-8 8-8s8 3.582 8 8" stroke="white" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+        </svg>
+      </div>
+      <div class="header-logo-text">
+        <span class="header-logo-main">ネイス体操教室</span>
+        <span class="header-logo-sub">ららぽーと安城校</span>
+      </div>
+    </a>
+  </div>
+  <div class="header-cta">
+    <a href="https://mypage.neis-gym.com/home?_gl=1%2aiejt9j%2a_ga%2aNjQ2NDE5NjAyLjE3NjkwNDY3MzI.%2a_ga_61FPNBG3B0%2aczE3OTI1NTA2NDckbzE0MyRnMSR0MTc5MjU1MDg5NCRqNjAkbDAkaDA.%2a_gcl_au%2aMTY5OTU2NTgzMi4xNzkyNDU5NTYx%2a_ga_06LS92V6R0%2aczE3OTI1NTA2NDgkbzE0NCRnMSR0MTc5MjU1MDg5NCRqNjAkbDAkaDQwMzYwMzE3MQ.." target="_blank" rel="noopener">無料体験する</a>
+  </div>
+</header>
+
+<!-- ===== HERO IMAGE ===== -->
+<div class="hero-image">
+  <img src="images/hero.png" alt="ネイス体操教室 ららぽーと安城校のレッスン風景" />
+</div>
+
+<!-- ===== HERO TEXT ===== -->
+<section class="hero-text">
+  <span class="hero-tag">🌟 1歳10ヵ月〜通える体操教室</span>
+  <h1>からだも<em>こころも</em><br />ぐんぐん伸びる！</h1>
+  <p class="hero-sub">ほめる指導 × 脳育体操 × 安全な独自器具。<br />ららぽーと安城の中だから、買い物ついでに気軽に通えます。</p>
+  <div class="hero-btns">
+    <a href="https://mypage.neis-gym.com/home?_gl=1%2aiejt9j%2a_ga%2aNjQ2NDE5NjAyLjE3NjkwNDY3MzI.%2a_ga_61FPNBG3B0%2aczE3OTI1NTA2NDckbzE0MyRnMSR0MTc5MjU1MDg5NCRqNjAkbDAkaDA.%2a_gcl_au%2aMTY5OTU2NTgzMi4xNzkyNDU5NTYx%2a_ga_06LS92V6R0%2aczE3OTI1NTA2NDgkbzE0NCRnMSR0MTc5MjU1MDg5NCRqNjAkbDAkaDQwMzYwMzE3MQ.." target="_blank" rel="noopener" class="btn-primary">🎉 無料体験に申し込む</a>
+    <a href="https://neis-gym.com/contact/" target="_blank" rel="noopener" class="btn-secondary">お問い合わせ</a>
+  </div>
+</section>
+
+<!-- wave -->
+<div class="wave-down">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 48" preserveAspectRatio="none" width="100%" height="48">
+    <path fill="#F7F9FC" d="M0,48 C360,0 1080,0 1440,48 L1440,48 L0,48 Z"/>
+  </svg>
+</div>
+
+<!-- ===== FEATURE (イチオシ) ===== -->
+<section class="feature">
+  <div class="section-inner">
+    <div class="section-tag">ネイスのプログラム</div>
+    <h2 class="section-title">子どもの「できた！」を<br />仕組みで増やす</h2>
+    <p class="section-lead">体操のプロが考案した4つのアプローチで、お子さまの自己肯定感と挑戦する力を育みます。</p>
+
+    <div class="feature-cards">
+      <div class="feature-card">
+        <div class="feature-icon feat-1">🏆</div>
+        <div>
+          <h3>スモールステップの進級テスト</h3>
+          <p>体操のプロが考案した段階的なテストで、小さな成功体験を積み重ねながら着実に上達できる仕組みが整っています。</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon feat-2">💬</div>
+        <div>
+          <h3>ほめる指導で苦手意識を解消</h3>
+          <p>ポジティブな声掛けを重視した「ほめる指導」を徹底。子どもが楽しく集中でき、運動への苦手意識を自然にやわらげます。</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon feat-3">🧠</div>
+        <div>
+          <h3>脳育体操でカラダもこころも育てる</h3>
+          <p>脳科学の知見を取り入れたプログラムで、身体能力だけでなく思考力・主体性も同時に養います。</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon feat-4">🎯</div>
+        <div>
+          <h3>目的に合わせた多様なクラス</h3>
+          <p>1歳10ヵ月からの未就学児クラスやバク転特化クラスなど、お子さまの年齢・目標に合ったクラスが用意されています。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-coming">
+      <p>🔜 <strong>近日公開予定：</strong>進級テストの結果や練習風景の動画を専用アプリで共有できる機能を準備中です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STRENGTH ===== -->
+<section class="strength">
+  <div class="section-inner">
+    <div class="section-tag">選ばれる3つの理由</div>
+    <h2 class="section-title">ネイス体操教室が<br />支持されるわけ</h2>
+    <p class="section-lead">全国展開で培ったノウハウを、ららぽーと安城校でも実感してください。</p>
+
+    <div class="strength-list">
+      <div class="strength-item">
+        <div class="strength-num">1</div>
+        <div>
+          <h3>脳と体を育む「脳育体操」</h3>
+          <p>運動神経の向上に特化したリズム運動などを取り入れ、身体能力だけでなく思考力や主体性も同時に養います。</p>
+        </div>
+      </div>
+      <div class="strength-item">
+        <div class="strength-num">2</div>
+        <div>
+          <h3>自社開発の安全なオリジナル器具</h3>
+          <p>高いクッション性で恐怖心を和らげる「大型エアートランポリン」など、子どもが夢中で挑戦できる環境を自社開発の器具で整えています。</p>
+        </div>
+      </div>
+      <div class="strength-item">
+        <div class="strength-num">3</div>
+        <div>
+          <h3>ららぽーと安城1階の好立地</h3>
+          <p>買い物のついでに通いやすく、保護者がレッスンの様子を常に見守れる設計になっています。室内なので天候に左右されません。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STORY ===== -->
+<section class="story">
+  <div class="section-inner">
+    <div class="section-tag" style="background:rgba(255,210,63,.18);color:var(--yellow);">代表者ストーリー</div>
+    <h2 class="section-title">全日本高校選抜3位の<br />元体操選手が創業</h2>
+    <p class="section-lead" style="color:rgba(255,255,255,.65);">ネイス体操教室の原点となる物語をご紹介します。</p>
+
+    <div class="story-card">
+      <span class="quote-mark">"</span>
+      <p>体操競技選手として全日本高校選抜大会個人総合3位、日本代表として海外大会にも出場した南友介。しかし大学在学中の大怪我で競技人生を断念しました。<br /><br />その後、会社員を経て2010年にネイス株式会社を創業。「子どもの未来をつくるサードプレイス」を理念に掲げ、夢中になれる体験を通じて子どもたちの自己肯定感と挑戦する心を育む事業を全国へ広げています。</p>
+      <div class="story-author">
+        <span class="story-author-badge">代表取締役</span>
+        <span class="story-author-name">南 友介（ネイス株式会社）</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<section class="reviews">
+  <div class="section-inner">
+    <div class="section-tag">通っている保護者の声</div>
+    <h2 class="section-title">「子どもの成長を<br />間近で見られます」</h2>
+    <p class="section-lead">実際にご利用いただいている保護者の方からいただいた声をご紹介します。</p>
+
+    <div class="review-cards">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>教室が商業施設の中にあるので通いやすいことと、外で遊ぶ機会が少なくなっているので、身体を思い切り動かせたらいいなと思い入会しました。<br /><br />先生方は元気に優しく教えてくださるので、安心して子供を通わせることができています。先生からのアドバイスを帰ってから親子で復習するなど、親子のコミュニケーションも増えたように思います。これからの成長が楽しみです。</p>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>夏場は暑くて、冬場は寒すぎて家ではなかなか運動ができないので、環境の整った場所でしっかり体を動かすことができるのが嬉しいです。親が疲れないのも嬉しいポイントです。<br /><br />先生方が上手に指導・サポートしてくれるので、慎重派でできないことにはチャレンジしようとしなかった子供が、難しい技にも挑戦するようになりました。子供は楽しく体の使い方や礼儀礼節が身につくのでおすすめの習い事です！</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INFO ===== -->
+<section class="info">
+  <div class="section-inner">
+    <div class="section-tag">教室情報</div>
+    <h2 class="section-title">アクセス・基本情報</h2>
+
+    <table class="info-table">
+      <tr>
+        <th>教室名</th>
+        <td>ネイス体操教室 ららぽーと安城校</td>
+      </tr>
+      <tr>
+        <th>住所</th>
+        <td>〒446-8530 愛知県安城市大東町9−30<br />ららぽーと安城 1階</td>
+      </tr>
+      <tr>
+        <th>電話番号</th>
+        <td><a href="tel:0570666023" style="color:var(--orange);font-weight:700;text-decoration:none;">0570-666-023</a></td>
+      </tr>
+      <tr>
+        <th>休校日</th>
+        <td>月曜日、水曜日</td>
+      </tr>
+      <tr>
+        <th>運営会社</th>
+        <td>ネイス株式会社</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- ===== MAP ===== -->
+<section class="map">
+  <div class="section-inner">
+    <div class="section-tag">地図</div>
+    <h2 class="section-title">ららぽーと安城1階</h2>
+
+    <div class="map-wrap">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3269.68474972201!2d137.0797896!3d34.964509299999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600499f6b2452a7f%3A0x2127cbe76bb16831!2z44ON44Kk44K55L2T5pON5pWZ5a6kIOOCieOCieOBveODvOOBqOWuieWfjuagoQ!5e0!3m2!1sja!2sjp!4v1792550803758!5m2!1sja!2sjp" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+    <div class="map-btn-wrap">
+      <a href="https://www.google.com/maps/place/%E3%83%8D%E3%82%A4%E3%82%B9%E4%BD%93%E6%93%8D%E6%95%99%E5%AE%A4+%E3%82%89%E3%82%89%E3%81%BD%E3%83%BC%E3%81%A8%E5%AE%89%E5%9F%8E%E6%A0%A1/@34.9645093,137.0797896,17z/data=!3m1!4b1!4m6!3m5!1s0x600499f6b2452a7f:0x2127cbe76bb16831!8m2!3d34.9645093!4d137.0797896!16s%2Fg%2F11x7mbsr0g?authuser=0&entry=ttu&g_ep=EgoyMDI2MTAxOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn-map">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+        </svg>
+        Googleマップで見る
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section">
+  <h2>まずは無料体験<br />からはじめよう！</h2>
+  <p>お子さまの「楽しい！」を一緒に見つけましょう。<br />体験レッスンでネイスの雰囲気を気軽にお試しください。</p>
+  <div class="cta-btns">
+    <a href="https://mypage.neis-gym.com/home?_gl=1%2aiejt9j%2a_ga%2aNjQ2NDE5NjAyLjE3NjkwNDY3MzI.%2a_ga_61FPNBG3B0%2aczE3OTI1NTA2NDckbzE0MyRnMSR0MTc5MjU1MDg5NCRqNjAkbDAkaDA.%2a_gcl_au%2aMTY5OTU2NTgzMi4xNzkyNDU5NTYx%2a_ga_06LS92V6R0%2aczE3OTI1NTA2NDgkbzE0NCRnMSR0MTc5MjU1MDg5NCRqNjAkbDAkaDQwMzYwMzE3MQ.." target="_blank" rel="noopener" class="btn-white">🎉 無料体験レッスンに申し込む</a>
+    <a href="https://neis-gym.com/contact/" target="_blank" rel="noopener" class="btn-white-outline">お問い合わせはこちら</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-logo">ネイス体操教室 ららぽーと安城校</div>
+  <div class="footer-sub">Neis Gymnastics School – Laraport Anjo</div>
+
+  <div class="footer-official">
+    <a href="https://neis-gym.com/class/aichi/neis_1140/" target="_blank" rel="noopener">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      公式サイトを見る
+    </a>
+  </div>
+
+  <div class="footer-sns">
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/neis_gymclass/" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg width="42" height="42" viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="ig-grad" cx="30%" cy="107%" r="150%">
+            <stop offset="0%" stop-color="#fdf497"/>
+            <stop offset="5%" stop-color="#fdf497"/>
+            <stop offset="45%" stop-color="#fd5949"/>
+            <stop offset="60%" stop-color="#d6249f"/>
+            <stop offset="90%" stop-color="#285AEB"/>
+          </radialGradient>
+        </defs>
+        <rect width="42" height="42" rx="12" fill="url(#ig-grad)"/>
+        <rect x="11" y="11" width="20" height="20" rx="6" fill="none" stroke="white" stroke-width="2.2"/>
+        <circle cx="21" cy="21" r="5" fill="none" stroke="white" stroke-width="2"/>
+        <circle cx="27.5" cy="14.5" r="1.3" fill="white"/>
+      </svg>
+    </a>
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/clubneis" target="_blank" rel="noopener" aria-label="Facebook">
+      <svg width="42" height="42" viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg">
+        <rect width="42" height="42" rx="12" fill="#1877F2"/>
+        <path d="M23.5 22h3l.5-3.5H23.5V16.5c0-1 .5-1.5 1.5-1.5H27v-3s-1.2-.2-2.5-.2c-2.8 0-4.5 1.7-4.5 4.7V18.5H17V22h3v9h3.5V22z" fill="white"/>
+      </svg>
+    </a>
+    <!-- X (Twitter) -->
+    <a href="https://x.com/clubneis" target="_blank" rel="noopener" aria-label="X (旧Twitter)">
+      <svg width="42" height="42" viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg">
+        <rect width="42" height="42" rx="12" fill="#000000"/>
+        <path d="M23.6 19.6L30.3 12h-1.6l-5.8 6.5L18.2 12H12l7 9.9L12 30h1.6l6.1-6.9 4.9 6.9H30l-6.4-10.4zm-2.2 2.5l-.7-1-5.6-7.9h2.4l4.5 6.4.7 1 5.9 8.3h-2.4l-4.8-6.8z" fill="white"/>
+      </svg>
+    </a>
+    <!-- YouTube -->
+    <a href="https://www.youtube.com/@%E3%83%8D%E3%82%A4%E3%82%B9%E3%81%A1%E3%82%83%E3%82%93%E3%81%AD%E3%82%8B" target="_blank" rel="noopener" aria-label="YouTube">
+      <svg width="42" height="42" viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg">
+        <rect width="42" height="42" rx="12" fill="#FF0000"/>
+        <path d="M32.5 15.5s-.3-2-1.3-2.9c-1.2-1.3-2.6-1.3-3.2-1.4C24.8 11 21 11 21 11s-3.8 0-7 .2c-.6.1-2 .1-3.2 1.4-1 .9-1.3 2.9-1.3 2.9S9.2 17.8 9.2 20v2c0 2.2.3 4.5.3 4.5s.3 2 1.3 2.9c1.2 1.3 2.8 1.2 3.5 1.4C16.8 31 21 31 21 31s3.8 0 7-.2c.6-.1 2-.1 3.2-1.4 1-.9 1.3-2.9 1.3-2.9s.3-2.3.3-4.5v-2c0-2.2-.3-4.5-.3-4.5zM18.5 24.5v-7.8l7 3.9-7 3.9z" fill="white"/>
+      </svg>
+    </a>
+  </div>
+
+  <div class="footer-info">
+    〒446-8530 愛知県安城市大東町9−30 ららぽーと安城 1階<br />
+    TEL：<a href="tel:0570666023" style="color:rgba(255,255,255,.5);text-decoration:none;">0570-666-023</a>　休校日：月曜日、水曜日<br />
+    運営：ネイス株式会社
+  </div>
+
+  <div class="footer-copy">
+    &copy; Neis Co., Ltd. All Rights Reserved.
+  </div>
+</footer>
+
+</body>
+</html>
